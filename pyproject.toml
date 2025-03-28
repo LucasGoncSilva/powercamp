@@ -1,0 +1,38 @@
+[project]
+name = "powercamp"
+version = "0.1.0"
+description = "PowerCamp 2025"
+readme = { file = ".github/README.md", content-type = "text/markdown" }
+license = { file = "LICENSE" }
+authors = [{ name = "LucasGonc", email = "lucasgoncsilva04@gmail.com" }]
+maintainers = [{ name = "LucasGonc", email = "lucasgoncsilva04@gmail.com" }]
+requires-python = ">=3.13"
+
+dependencies = [
+    "dj-database-url>=2.3.0",
+    "django>=5.1.7",
+    "psycopg2-binary>=2.9.10",
+]
+
+[dependency-groups]
+dev = ["django-extensions>=3.2.3", "ruff>=0.11.2"]
+
+[project.urls]
+Repository = "https://github.com/lucasGoncSilva/powercamp/"
+
+[tool.ruff]
+line-length = 88
+exclude = [".env", ".venv"]
+fix = true
+
+[tool.ruff.format]
+quote-style = "single"
+docstring-code-format = true
+
+[tool.ruff.lint]
+select = ["I", "E", "UP", "F"]
+fixable = ["ALL"]
+
+[tool.ruff.lint.isort]
+case-sensitive = true
+lines-after-imports = 2
