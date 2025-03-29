@@ -8,4 +8,5 @@ urlpatterns: list[URLResolver] = [
     # App
     path('', include('home.urls')),
     path('hall/', include('hall.urls')),
+    path('equipes', include('teams.urls')),
 ]
