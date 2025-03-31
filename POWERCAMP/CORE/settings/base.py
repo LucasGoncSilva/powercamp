@@ -23,6 +23,8 @@ INSTALLED_APPS: list[str] = [
     'django.contrib.staticfiles',
     # Local
     'home',
+    'hall',
+    'teams',
 ]
 
 MIDDLEWARE: list[str] = [
