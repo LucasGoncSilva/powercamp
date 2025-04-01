@@ -40,49 +40,6 @@ Desc
 ![GitHub](https://img.shields.io/badge/GitHub-fff?style=for-the-badge&logo=github&logoColor=181717)
 ![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088ff?style=for-the-badge&logo=github-actions&logoColor=fff)
 
-## Arquitetura
-
-Descrição sobre arquitetura escolhida, tanto de diretórios (monorepo, MVC, etc.) quanto de projeto (monolito, microsserviços, APIs, fluxo de comunicação, etc.), tudo conforme cabível dentro do escopo desejado.
-
-Exemplos com fluxogramas, mermaid e/ou imagens são sempre bem-vindos.
-
-## Execução
-
-Antes de iniciar com o desenvolvimento e os comandos, é importante definir as variáveis de ambiente no seu ambiente de desenvolvimento. Abaixo a listagem de quais definir:
-
-| Variável  | Tipo     | Necessidade            | Default | Descrição                  |
-| :-------- | :------- | :--------------------- | :------ | :------------------------- |
-| `EXAMPLE` | `string` | [Required \| Optional] | `Foo`   | Lorem ipsum dolor sit amet |
-
-### Ação
-
-`comando`
-
-<!--
-LISTA DE POSSÍVEIS AÇÕES
-
-Linter
-Checagem de Tipos
-Conversão (e.g. TS -> JS)
-Buscar/iniciar Migrações (Atualizações) de Banco de Dados
-Atualizar Estrutura do Banco de Dados com Novas Migrações
-Iniciar Testes Automatizados
-Popular Banco de Dados para Execução Local
-Iniciar o Servidor
- -->
-
-## To-Do List
-
-- [ ] Lista
-- [ ] de
-- [ ] Tarefas
-
-## Contrib
-
-Definições curtas e objetivas de padrões a serem seguidos para contribuição de PRs.
-
-Padrões em detalhes, explicações e informações/solicitações mais profundas em um `.github/CONTRIBUTING.MD`; vide [https://github.com/jessesquires/.github/blob/main/CONTRIBUTING.md](https://github.com/jessesquires/.github/blob/main/CONTRIBUTING.md)
-
 ## Licença
 
 This project is under [MIT - Massachusetts Institute of Technology](https://choosealicense.com/licenses/mit/). A short and simple permissive license with conditions only requiring preservation of copyright and license notices. Licensed works, modifications, and larger works may be distributed under different terms and without source code.
