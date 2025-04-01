@@ -1,9 +1,10 @@
-from django.contrib import admin
+from CORE.admin import adm
+from django.contrib.admin import ModelAdmin
 
 from teams.models import Member, Team
 
 
-class TeamAdmin(admin.ModelAdmin):  # type: ignore
+class TeamAdmin(ModelAdmin):  # type: ignore
     actions_selection_counter = True
     empty_value_display = 'A Definir'
     list_filter = ('color',)
@@ -12,7 +13,7 @@ class TeamAdmin(admin.ModelAdmin):  # type: ignore
     show_full_result_count = True
 
 
-class MemberAdmin(admin.ModelAdmin):  # type: ignore
+class MemberAdmin(ModelAdmin):  # type: ignore
     actions_selection_counter = True
     empty_value_display = 'A Definir'
     list_filter = ('team', 'is_team_leader', 'is_mascot')
@@ -22,5 +23,5 @@ class MemberAdmin(admin.ModelAdmin):  # type: ignore
     show_full_result_count = True
 
 
-admin.site.register(Team, TeamAdmin)
-admin.site.register(Member, MemberAdmin)
+adm.register(Team, TeamAdmin)
+adm.register(Member, MemberAdmin)

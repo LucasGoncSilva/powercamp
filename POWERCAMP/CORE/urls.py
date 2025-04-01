@@ -1,10 +1,11 @@
-from django.contrib import admin
 from django.urls import URLResolver, include, path
+
+from CORE.admin import adm
 
 
 urlpatterns: list[URLResolver] = [
     # Admin
-    path('admin/', admin.site.urls),
+    path('admin/', adm.urls),
     # App
     path('', include('home.urls')),
     path('hall/', include('hall.urls')),

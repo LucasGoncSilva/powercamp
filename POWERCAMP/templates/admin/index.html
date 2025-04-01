@@ -1,0 +1,26 @@
+{% extends "admin/index.html" %}
+
+
+{% block content %}
+
+{{ block.super }}
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<div style="position: absolute; top: 4.3rem; left: 62rem">
+    <h1>Informações Gerais</h1>
+
+    {{ admin_dashboard.def_chart_colors|safe }}
+
+    <div style="display: grid; grid-template-columns: auto auto auto; row-gap: 5rem;">
+        {% for i in admin_dashboard.range %}
+        <div style="width: 400px; height: 400px;">
+            <canvas id="chart{{ i|add:'1' }}"></canvas>
+        </div>
+        {% endfor %}
+    </div>
+
+    {{ admin_dashboard.chart1|safe }}
+    {{ admin_dashboard.chart2|safe }}
+</div>
+{% endblock %}
