@@ -8,9 +8,9 @@ from CORE.settings.base import *
 
 DATABASES = {'default': dj_database_url.config(default=str(getenv('DATABASE_URL')))}
 
-DEBUG: bool = bool(getenv('DEBUG', False))
-SECRET_KEY: str | None = getenv('SECRET_KEY')
-ALLOWED_HOSTS: list[str] = list(
+DEBUG: bool = bool(getenv('DEBUG', False))  # type: ignore
+SECRET_KEY: str | None = getenv('SECRET_KEY')  # type: ignore
+ALLOWED_HOSTS: list[str] = list(  # type: ignore
     map(lambda url: url.strip(), str(getenv('ALLOWED_HOSTS')).split(','))
 )
 

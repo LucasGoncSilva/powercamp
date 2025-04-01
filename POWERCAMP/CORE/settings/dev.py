@@ -17,8 +17,8 @@ DATABASES: dict[str, dict[str, str | Path]] = {
     }
 }
 
-INSTALLED_APPS += ['django_extensions']
+INSTALLED_APPS += ['django_extensions']  # type: ignore
 
-DEBUG = bool(getenv('DEBUG', DEBUG))
-SECRET_KEY: str = getenv('SECRET_KEY', SECRET_KEY)
-ALLOWED_HOSTS: list[str] = list(str(getenv('ALLOWED_HOSTS', ALLOWED_HOSTS)))
+DEBUG = bool(getenv('DEBUG', DEBUG))  # type: ignore
+SECRET_KEY: str = getenv('SECRET_KEY', SECRET_KEY)  # type: ignore
+ALLOWED_HOSTS: list[str] = list(str(getenv('ALLOWED_HOSTS', ALLOWED_HOSTS)))  # type: ignore
