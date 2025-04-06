@@ -104,9 +104,7 @@ USE_TZ: bool = True
 
 STATIC_URL: str = 'static/'
 STATIC_ROOT: Path = BASE_DIR / 'staticfiles'
-STATICFILES_DIRS: list[Path] = [
-    BASE_DIR / 'static',
-]
+STATICFILES_DIRS: list[Path] = [BASE_DIR / 'static']
 STATICFILES_STORAGE: str = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 

@@ -178,3 +178,6 @@ cython_debug/
 
 # Staticfiles
 staticfiles/
+
+# Cloud
+gcp-service-account.json

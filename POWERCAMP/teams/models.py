@@ -1,6 +1,13 @@
 from typing import Final
 
-from django.db.models import SET_NULL, BooleanField, CharField, ForeignKey, Model
+from django.db.models import (
+    SET_NULL,
+    BooleanField,
+    CharField,
+    ForeignKey,
+    ImageField,
+    Model,
+)
 
 
 class Team(Model):
@@ -12,6 +19,9 @@ class Team(Model):
     )
     mascot: Final[CharField] = CharField(  # type: ignore
         unique=True, max_length=48, blank=True, null=True, verbose_name='mascote'
+    )
+    logo: Final[ImageField] = ImageField(
+        upload_to='teams/Team/logo', blank=True, null=True
     )
 
     def __str__(self) -> str:
@@ -26,18 +36,18 @@ class Member(Model):
         unique=True, max_length=64, verbose_name='nome'
     )
     is_team_leader: Final[BooleanField] = BooleanField(  # type: ignore
-        default=False, verbose_name='líder de equipe?'
+        default=False, verbose_name='é líder de equipe'
     )
     is_mascot: Final[BooleanField] = BooleanField(  # type: ignore
-        default=False, verbose_name='mascote?'
+        default=False, verbose_name='é mascote'
     )
     team: Final[ForeignKey[Team | None]] = ForeignKey(
         Team,
         on_delete=SET_NULL,
-        related_name='member',
+        related_name='members',
         blank=True,
         null=True,
-        verbose_name='time',
+        verbose_name='equipe',
     )
 
     def __str__(self) -> str:
