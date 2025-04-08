@@ -9,7 +9,7 @@ from CORE.admin import adm
 
 urlpatterns: list[URLResolver | URLPattern] = [
     # Admin
-    path('admin/', adm.urls),
+    path(getenv('ADM_ROUTE', 'admin/'), adm.urls),
     # App
     path('', include('home.urls')),
     path('hall/', include('hall.urls')),
