@@ -1,5 +1,6 @@
-from typing import Final
+from typing import Any, Final, Self
 
+from django.core.exceptions import ValidationError
 from django.db.models import (
     SET_NULL,
     BooleanField,
@@ -24,7 +25,7 @@ class Team(Model):
         upload_to='teams/Team/logo', blank=True, null=True
     )
 
-    def __str__(self) -> str:
+    def __str__(self: Self) -> str:
         return f'{self.color}'  # type: ignore
 
     class Meta:
@@ -50,8 +51,29 @@ class Member(Model):
         verbose_name='equipe',
     )
 
-    def __str__(self) -> str:
+    def __str__(self: Self) -> str:
         return f'{self.name} | {self.team}'  # type: ignore
 
     class Meta:
         verbose_name: str = 'membro'
+
+    def validate_unique(self: Self, exclude: Any = None) -> None:
+        if (
+            self.team
+            and self.team.members.filter(is_team_leader=True)  # type: ignore
+            .exclude(pk=self.pk)
+            .exists()
+            and self.is_team_leader  # type: ignore
+        ):
+            raise ValidationError(f'{self.team} já tem um líder de equipe.')
+
+        if (
+            self.team
+            and self.team.members.filter(is_mascot=True)  # type: ignore
+            .exclude(pk=self.pk)
+            .exists()
+            and self.is_mascot  # type: ignore
+        ):
+            raise ValidationError(f'{self.team} já tem um mascote.')
+
+        super().validate_unique(exclude=exclude)
