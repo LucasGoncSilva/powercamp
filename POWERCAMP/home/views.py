@@ -1,6 +1,6 @@
 from typing import Final
 
-from django.core.validators import EmailValidator, RegexValidator
+from django.core.validators import RegexValidator
 from django.forms import CharField, EmailField, Form
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import redirect, render
@@ -19,6 +19,12 @@ class EventForm(Form):
         max_length=256,
         strip=True,
         required=True,
+        validators=[
+            RegexValidator(
+                r'^[A-Za-zÀ-ÖØ-öø-ÿ]+(?: [A-Za-zÀ-ÖØ-öø-ÿ]+)*$',
+                'Insira seu nome sem caracteres como ".", "-", "_" ou números.',
+            )
+        ],
     )
     cel: CharField = CharField(
         label='CELULAR:',
@@ -29,7 +35,8 @@ class EventForm(Form):
         validators=[
             RegexValidator(
                 r'^\(\d{2}\) 9\d{4}-\d{4}$',
-                'Seu número de celular deve conter apenas números',
+                'Seu número de celular deve conter apenas números e '
+                'estar no formato esperado - (xx) 9xxxx-xxxx.',
             )
         ],
     )
@@ -42,7 +49,7 @@ class EventForm(Form):
         validators=[
             RegexValidator(
                 r'^\d{2}\.\d{3}\.\d{3}-\d{1}$',
-                'Seu RG deve conter apenas números',
+                'Seu RG deve conter apenas números.',
             )
         ],
     )
@@ -51,7 +58,6 @@ class EventForm(Form):
         min_length=11,
         max_length=64,
         required=True,
-        validators=[EmailValidator],
     )
 
 
