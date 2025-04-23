@@ -1,6 +1,6 @@
 [project]
 name = "powercamp"
-version = "1.0.0"
+version = "1.0.1"
 description = "PowerCamp 2025"
 readme = { file = ".github/README.md", content-type = "text/markdown" }
 license = { file = "LICENSE" }

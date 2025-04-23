@@ -263,7 +263,7 @@ wheels = [
 
 [[package]]
 name = "powercamp"
-version = "1.0.0"
+version = "1.0.1"
 source = { virtual = "." }
 dependencies = [
     { name = "dj-database-url" },
