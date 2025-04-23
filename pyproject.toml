@@ -1,6 +1,6 @@
 [project]
 name = "powercamp"
-version = "0.2.0"
+version = "1.0.0"
 description = "PowerCamp 2025"
 readme = { file = ".github/README.md", content-type = "text/markdown" }
 license = { file = "LICENSE" }
@@ -10,11 +10,11 @@ requires-python = ">=3.13"
 
 dependencies = [
     "dj-database-url>=2.3.0",
-    "django>=5.1.7",
+    "django>=5.2",
     "django-storages>=1.14.6",
     "google-cloud-storage>=3.1.0",
     "gunicorn>=23.0.0",
-    "pillow>=11.1.0",
+    "pillow>=11.2.1",
     "psycopg2-binary>=2.9.10",
     "whitenoise>=6.9.0",
 ]
@@ -24,6 +24,7 @@ dev = ["django-extensions>=4.0", "ruff>=0.11.5"]
 
 [project.urls]
 Repository = "https://github.com/lucasGoncSilva/powercamp/"
+Homepage = "https://powercamp2025.com.br"
 
 [tool.ruff]
 line-length = 88

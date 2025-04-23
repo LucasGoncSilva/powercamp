@@ -1,3 +1,4 @@
+from os import getenv
 from typing import Final
 
 from django.core.validators import RegexValidator
@@ -80,6 +81,6 @@ def event_form(r: HttpRequest) -> HttpResponse:
     email: str = form.cleaned_data['email']
 
     return redirect(
-        'https://wa.me/+5511985774716?text='
+        f'https://wa.me/+55{getenv("CONTACT_NUMBER")}?text='
         + CONTACT.format(name=name.title(), cel=cel, rg=rg, email=email)
     )
