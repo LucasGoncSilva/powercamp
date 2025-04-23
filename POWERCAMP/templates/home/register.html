@@ -1,0 +1,62 @@
+{% extends 'shared/base.html' %}
+{% load static %}
+
+
+{% block title %} Cadastre-se Já! {% endblock %}
+
+
+{% block head %}
+<script src="https://cdn.jsdelivr.net/npm/inputmask@5.0.6/dist/inputmask.min.js"></script>
+<link rel="stylesheet" href="{% static 'home/css/register.css' %}">
+{% endblock %}
+
+
+{% block body %}
+<div id="circle"></div>
+
+<h1>CONFIRMAÇÃO DE <i>PRESENÇA</i></h1>
+
+<form action="" method="post">
+    <fieldset>
+        <legend>RESPONDA PARA PARTICIPAR!</legend>
+
+        {% csrf_token %}
+
+        {% for field in form %}
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label><br>
+
+        {% if field.errors %}
+        <div class="error">
+            {% for error in field.errors %}
+            {{ error }}<br>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {{ field }}
+
+        <br><br>
+        {% endfor %}
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const cel = document.getElementById('id_cel');
+                if (cel) {
+                    const celMask = new Inputmask('(99) 99999-9999');
+                    celMask.mask(cel);
+                }
+
+                const rg = document.getElementById('id_rg');
+                if (rg) {
+                    const rgMask = new Inputmask('99.999.999-9');
+                    rgMask.mask(rg);
+                }
+            });
+        </script>
+
+        <input type="submit" value="Confirmar">
+    </fieldset>
+</form>
+
+<img src="{% static 'shared/img/logo.png' %}" alt="Logo do evento">
+{% endblock %}
